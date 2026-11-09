@@ -1,0 +1,14 @@
+order-payment-api/
+├── app/
+│   ├── __init__.py
+│   ├── db.py
+│   ├── models.py
+│   ├── main.py
+│   ├── rate_limit.py
+│   ├── tasks.py
+│   └── gateway.py
+├── tests/
+│   └── test_gateway.py
+├── requirements.txt
+├── Dockerfile
+└── docker-compose.yml

@@ -1,0 +1,16 @@
+from unittest.mock import Mock
+
+from app.gateway import GatewayResult, PaymentGateway
+
+
+def test_gateway_returns_reference():
+    gateway = PaymentGateway()
+    gateway.charge = Mock(
+        return_value=GatewayResult(approved=True, reference="mock-ref")
+    )
+
+    result = gateway.charge(2500, "checkout-123")
+
+    assert result.approved is True
+    assert result.reference == "mock-ref"
+    gateway.charge.assert_called_once_with(2500, "checkout-123")
